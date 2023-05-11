@@ -38,27 +38,26 @@ public class Contactes {
 
     public void cercarContacte(String nom) {
         Pattern pattern = Pattern.compile(nom.substring(0, 4), Pattern.CASE_INSENSITIVE);
-        boolean coincidenciesParcials = false;
+        boolean coincidencia = false;
         for (Map.Entry<String, Integer> entry : agenda.entrySet()) {
             String contacteNom = entry.getKey();
             Matcher matcher = pattern.matcher(contacteNom);
             if (matcher.find()) {
-                coincidenciesParcials = true;
+                coincidencia = true;
                 System.out.println("Vols dir " + contacteNom + "?");
             }
         }
-        if (!coincidenciesParcials) {
+        if (!coincidencia) {
             System.out.println("No s'ha trobat cap telefon amb el nom: " + nom);
-
         } else {
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Introdueix el nom exacte per mostrar el número de telèfon: ");
-            String nomExacte = scanner.nextLine();
+            Scanner scan = new Scanner(System.in);
+            System.out.print("Introdueix el nom exacte per mostrar el numero de telèfon: ");
+            String nomExacte = scan.nextLine();
             if (agenda.containsKey(nomExacte)) {
                 int numeroTelefon = agenda.get(nomExacte);
-                System.out.println("El número de telèfon de " + nomExacte + " és: " + numeroTelefon);
+                System.out.println("El numero de telefon de " + nomExacte + " es: " + numeroTelefon);
             } else {
-                System.out.println("No s'ha trobat cap coincidència exacta per al nom " + nomExacte);
+                System.out.println("No s'ha trobat cap telefon amb el nom: " + nomExacte);
             }
         }
 
