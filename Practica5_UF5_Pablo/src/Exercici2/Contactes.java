@@ -29,36 +29,18 @@ public class Contactes {
 
     public void llistarContactes() {
         for (Map.Entry<String, Integer> entry : agenda.entrySet()) {
-            String nom = entry.getKey();
-            int numTelefon = entry.getValue();
+            String nom = entry.getKey();//Recibe la clave que es el nombre, como es un for recibe todos los nombres y luego abajo le da el valor al num
+            int numTelefon = entry.getValue();//A través de la clave que le has pasado te devuelve el numero
             System.out.println(nom + " - " + numTelefon);
 
         }
     }
 
     public void cercarContacte(String nom) {
-        Pattern pattern = Pattern.compile(nom.substring(0, 4), Pattern.CASE_INSENSITIVE);
-        boolean coincidencia = false;
-        for (Map.Entry<String, Integer> entry : agenda.entrySet()) {
-            String contacteNom = entry.getKey();
-            Matcher matcher = pattern.matcher(contacteNom);
-            if (matcher.find()) {
-                coincidencia = true;
-                System.out.println("Vols dir " + contacteNom + "?");
-            }
-        }
-        if (!coincidencia) {
-            System.out.println("No s'ha trobat cap telefon amb el nom: " + nom);
-        } else {
-            Scanner scan = new Scanner(System.in);
-            System.out.print("Introdueix el nom exacte per mostrar el numero de telèfon: ");
-            String nomExacte = scan.nextLine();
-            if (agenda.containsKey(nomExacte)) {
-                int numeroTelefon = agenda.get(nomExacte);
-                System.out.println("El numero de telefon de " + nomExacte + " es: " + numeroTelefon);
-            } else {
-                System.out.println("No s'ha trobat cap telefon amb el nom: " + nomExacte);
-            }
+        if(agenda.containsKey(nom)){
+            System.out.println("El numero de " + nom + " es  " + agenda.get(nom));
+        }else{
+            System.out.println("El contacto no existe");
         }
 
     }
