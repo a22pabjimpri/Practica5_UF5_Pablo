@@ -37,10 +37,18 @@ public class Contactes {
     }
 
     public void cercarContacte(String nom) {
-        if(agenda.containsKey(nom)){//Si la agenda contiene la key que es el nombre
+        if (agenda.containsKey(nom)) {//Si la agenda contiene la key que es el nombre
             System.out.println("El numero de " + nom + " es  " + agenda.get(nom)); //Al mostrarlo hace agenda.get(nom) que devuelve el valor de esa key
-        }else{
+        } else {
             System.out.println("El contacto no existe");
+        }
+
+    }
+
+    public void borrarContacte(String nom) {
+        if(agenda.containsKey(nom)){//Hace lo mismo, s la agenbda contiene ese nombre
+            agenda.remove(nom);//Borra lo que haya atribuido a esa clave, el numero y la propia clave
+            System.out.println("Contacto borrado");
         }
 
     }
