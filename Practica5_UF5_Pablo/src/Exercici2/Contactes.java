@@ -37,8 +37,8 @@ public class Contactes {
     }
 
     public void cercarContacte(String nom) {
-        if(agenda.containsKey(nom)){
-            System.out.println("El numero de " + nom + " es  " + agenda.get(nom));
+        if(agenda.containsKey(nom)){//Si la agenda contiene la key que es el nombre
+            System.out.println("El numero de " + nom + " es  " + agenda.get(nom)); //Al mostrarlo hace agenda.get(nom) que devuelve el valor de esa key
         }else{
             System.out.println("El contacto no existe");
         }
